@@ -3,6 +3,12 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { resolve } from 'path';
+import { AdminModule } from './admin/admin.module';
+import { PlanModule } from './plan/plan.module';
+import { CenterModule } from './center/center.module';
+import { Admin } from './admin/models/admin.model';
+import { Plan } from './plan/models/plan.model';
+import { Center } from './center/models/center.model';
 
 @Module({
   imports: [
@@ -26,8 +32,11 @@ import { resolve } from 'path';
           rejectUnauthorized: false,
         },
       },
-      models: [],
+      models: [Admin, Plan, Center],
     }),
+    AdminModule,
+    PlanModule,
+    CenterModule,
   ],
   controllers: [],
   providers: [],
