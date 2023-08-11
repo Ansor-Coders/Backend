@@ -9,12 +9,20 @@ import { CenterModule } from './center/center.module';
 import { Admin } from './admin/models/admin.model';
 import { Plan } from './plan/models/plan.model';
 import { Center } from './center/models/center.model';
+import { TelegramService } from './telegram/telegram.service';
+import { TelegramUpdate } from './telegram/telegram.update';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: resolve(__dirname, 'static'),
+    TelegrafModule.forRootAsync({
+      botName: MyBotName,
+      useFactory: () => ({
+        token: process.env.BOT_TOKEN,
+        middlewares: [],
+        include: [],
+      }),
     }),
+    ServeStaticModule.forRoot({ rootPath: resolve(__dirname, 'static') }),
     ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
@@ -39,6 +47,6 @@ import { Center } from './center/models/center.model';
     CenterModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [TelegramService, TelegramUpdate],
 })
 export class AppModule {}
