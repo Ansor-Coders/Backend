@@ -10,6 +10,8 @@ import { Course } from '../course/models/course.model';
 import { Teacher } from '../teacher/models/teacher.model';
 import { GroupStudent } from '../group_student/models/group_student.model';
 import { Student } from '../student/models/student.model';
+import { Lesson } from '../lesson/models/lesson.model';
+import { Payment } from '../payment/models/payment.model';
 
 @Injectable()
 export class GroupService {
@@ -73,25 +75,6 @@ export class GroupService {
             'experience',
             'image_name',
             'is_active',
-          ],
-        },
-        {
-          model: GroupStudent,
-          attributes: ['id', 'is_active'],
-          include: [
-            {
-              model: Student,
-              attributes: [
-                'id',
-                'first_name',
-                'last_name',
-                'phone',
-                'phone_additional',
-                'gender',
-                'birth_year',
-                'is_active',
-              ],
-            },
           ],
         },
       ],
@@ -177,6 +160,33 @@ export class GroupService {
             'experience',
             'image_name',
             'is_active',
+          ],
+        },
+        {
+          model: GroupStudent,
+          attributes: ['id', 'is_active'],
+          include: [
+            {
+              model: Student,
+              attributes: [
+                'id',
+                'first_name',
+                'last_name',
+                'phone',
+                'phone_additional',
+                'gender',
+                'birth_year',
+                'is_active',
+              ],
+            },
+            {
+              model: Lesson,
+              attributes: ['id', 'date', 'is_come', 'is_active'],
+            },
+            {
+              model: Payment,
+              attributes: ['id', 'month', 'is_active'],
+            },
           ],
         },
       ],

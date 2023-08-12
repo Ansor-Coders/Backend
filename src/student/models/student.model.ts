@@ -57,10 +57,4 @@ export class Student extends Model<Student, StudentAttr> {
 
   @HasMany(() => GroupStudent)
   groupStudent: GroupStudent[];
-
-  // @HasMany(() => StudentLesson)
-  // studentLesson: StudentLesson[];
-
-  // @HasMany(() => StudentPayment)
-  // studentPayment: StudentPayment[];
 }

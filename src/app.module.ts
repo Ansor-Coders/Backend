@@ -23,6 +23,12 @@ import { TelegramService } from './telegram/telegram.service';
 import { TelegramUpdate } from './telegram/telegram.update';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { MyBotName } from './telegram/telegram.constants';
+import { LessonModule } from './lesson/lesson.module';
+import { PaymentModule } from './payment/payment.module';
+import { DeveloperModule } from './developer/developer.module';
+import { Developer } from './developer/models/developer.model';
+import { Lesson } from './lesson/models/lesson.model';
+import { Payment } from './payment/models/payment.model';
 
 @Module({
   imports: [
@@ -53,6 +59,7 @@ import { MyBotName } from './telegram/telegram.constants';
         },
       },
       models: [
+        Developer,
         Admin,
         Plan,
         Center,
@@ -61,8 +68,11 @@ import { MyBotName } from './telegram/telegram.constants';
         Student,
         Group,
         GroupStudent,
+        Lesson,
+        Payment,
       ],
     }),
+    DeveloperModule,
     AdminModule,
     PlanModule,
     CenterModule,
@@ -71,6 +81,8 @@ import { MyBotName } from './telegram/telegram.constants';
     StudentModule,
     GroupModule,
     GroupStudentModule,
+    LessonModule,
+    PaymentModule,
   ],
   controllers: [],
   // providers: [TelegramService, TelegramUpdate],

@@ -15,6 +15,8 @@ import { GroupStudent } from '../group_student/models/group_student.model';
 import { Group } from '../group/models/group.model';
 import { Course } from '../course/models/course.model';
 import { Teacher } from '../teacher/models/teacher.model';
+import { Lesson } from '../lesson/models/lesson.model';
+import { Payment } from '../payment/models/payment.model';
 
 @Injectable()
 export class StudentService {
@@ -66,10 +68,10 @@ export class StudentService {
     await this.getOne(id);
 
     if (updateStudentDto.phone) {
-      const StudentByPhone = await this.getStudentByPhone(
+      const studentByPhone = await this.getStudentByPhone(
         updateStudentDto.phone,
       );
-      if (StudentByPhone && StudentByPhone.id != id) {
+      if (studentByPhone && studentByPhone.id != id) {
         throw new BadRequestException('Phone already registered!');
       }
     }
@@ -155,6 +157,14 @@ export class StudentService {
                   ],
                 },
               ],
+            },
+            {
+              model: Lesson,
+              attributes: ['id', 'date', 'is_come', 'is_active'],
+            },
+            {
+              model: Payment,
+              attributes: ['id', 'month', 'is_active'],
             },
           ],
         },

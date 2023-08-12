@@ -5,9 +5,12 @@ import {
   Table,
   BelongsTo,
   ForeignKey,
+  HasMany,
 } from 'sequelize-typescript';
 import { Student } from '../../student/models/student.model';
 import { Group } from '../../group/models/group.model';
+import { Lesson } from '../../lesson/models/lesson.model';
+import { Payment } from '../../payment/models/payment.model';
 
 interface GroupStudentAttr {
   id: string;
@@ -37,4 +40,10 @@ export class GroupStudent extends Model<GroupStudent, GroupStudentAttr> {
 
   @BelongsTo(() => Group)
   group: Group;
+
+  @HasMany(() => Lesson)
+  lesson: Lesson[];
+
+  @HasMany(() => Payment)
+  payment: Payment[];
 }
