@@ -3,6 +3,8 @@ import { Center } from '../../center/models/center.model';
 
 interface PlanAttr {
   id: string;
+  name: string;
+  price: number;
   student_amount: number;
   teacher_amount: number;
   group_amount: number;
@@ -13,6 +15,12 @@ interface PlanAttr {
 export class Plan extends Model<Plan, PlanAttr> {
   @Column({ type: DataType.STRING, primaryKey: true })
   id: string;
+
+  @Column({ type: DataType.STRING })
+  name: string;
+
+  @Column({ type: DataType.INTEGER })
+  price: number;
 
   @Column({ type: DataType.INTEGER })
   student_amount: number;

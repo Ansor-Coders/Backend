@@ -1,7 +1,23 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsOptional, IsNumber } from 'class-validator';
+import { IsBoolean, IsOptional, IsNumber, IsString } from 'class-validator';
 
 export class UpdatePlanDto {
+  @ApiProperty({
+    example: 'Basic',
+    description: 'The name of the Plan',
+  })
+  @IsOptional()
+  @IsString()
+  name?: string;
+
+  @ApiProperty({
+    example: 175000,
+    description: 'The price of the Plan',
+  })
+  @IsOptional()
+  @IsNumber()
+  price?: number;
+
   @ApiProperty({
     example: 1000,
     description: 'The student amount of the Plan',

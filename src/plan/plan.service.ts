@@ -23,30 +23,12 @@ export class PlanService {
     return this.planRepository.findAll({
       attributes: [
         'id',
+        'name',
+        'price',
         'student_amount',
         'teacher_amount',
         'group_amount',
         'is_active',
-      ],
-      include: [
-        {
-          model: Center,
-          attributes: ['id', 'name', 'address', 'image_name', 'is_active'],
-          include: [
-            {
-              model: Admin,
-              attributes: [
-                'id',
-                'first_name',
-                'last_name',
-                'phone',
-                'image_name',
-                'username',
-                'is_active',
-              ],
-            },
-          ],
-        },
       ],
     });
   }
@@ -75,6 +57,8 @@ export class PlanService {
       where: { id },
       attributes: [
         'id',
+        'name',
+        'price',
         'student_amount',
         'teacher_amount',
         'group_amount',

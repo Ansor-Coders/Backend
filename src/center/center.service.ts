@@ -8,6 +8,9 @@ import { PlanService } from './../plan/plan.service';
 import { Plan } from '../plan/models/plan.model';
 import { Admin } from '../admin/models/admin.model';
 import { v4 } from 'uuid';
+import { Course } from '../course/models/course.model';
+import { Teacher } from '../teacher/models/teacher.model';
+import { Student } from '../student/models/student.model';
 
 @Injectable()
 export class CenterService {
@@ -48,6 +51,8 @@ export class CenterService {
           model: Plan,
           attributes: [
             'id',
+            'name',
+            'price',
             'student_amount',
             'teacher_amount',
             'group_amount',
@@ -102,9 +107,41 @@ export class CenterService {
           model: Plan,
           attributes: [
             'id',
+            'name',
+            'price',
             'student_amount',
             'teacher_amount',
             'group_amount',
+            'is_active',
+          ],
+        },
+        {
+          model: Course,
+          attributes: ['id', 'name', 'price', 'is_active'],
+        },
+        {
+          model: Teacher,
+          attributes: [
+            'id',
+            'first_name',
+            'last_name',
+            'phone',
+            'position',
+            'experience',
+            'image_name',
+            'is_active',
+          ],
+        },
+        {
+          model: Student,
+          attributes: [
+            'id',
+            'first_name',
+            'last_name',
+            'phone',
+            'phone_additional',
+            'gender',
+            'birth_year',
             'is_active',
           ],
         },

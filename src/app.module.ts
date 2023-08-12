@@ -9,6 +9,16 @@ import { CenterModule } from './center/center.module';
 import { Admin } from './admin/models/admin.model';
 import { Plan } from './plan/models/plan.model';
 import { Center } from './center/models/center.model';
+import { TeacherModule } from './teacher/teacher.module';
+import { StudentModule } from './student/student.module';
+import { GroupModule } from './group/group.module';
+import { GroupStudentModule } from './group_student/group_student.module';
+import { Teacher } from './teacher/models/teacher.model';
+import { Student } from './student/models/student.model';
+import { Group } from './group/models/group.model';
+import { GroupStudent } from './group_student/models/group_student.model';
+import { CourseModule } from './course/course.module';
+import { Course } from './course/models/course.model';
 
 @Module({
   imports: [
@@ -32,11 +42,25 @@ import { Center } from './center/models/center.model';
           rejectUnauthorized: false,
         },
       },
-      models: [Admin, Plan, Center],
+      models: [
+        Admin,
+        Plan,
+        Center,
+        Course,
+        Teacher,
+        Student,
+        Group,
+        GroupStudent,
+      ],
     }),
     AdminModule,
     PlanModule,
     CenterModule,
+    CourseModule,
+    TeacherModule,
+    StudentModule,
+    GroupModule,
+    GroupStudentModule,
   ],
   controllers: [],
   providers: [],

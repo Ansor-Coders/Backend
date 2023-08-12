@@ -9,6 +9,9 @@ import {
 } from 'sequelize-typescript';
 import { Admin } from '../../admin/models/admin.model';
 import { Plan } from '../../plan/models/plan.model';
+import { Teacher } from '../../teacher/models/teacher.model';
+import { Student } from '../../student/models/student.model';
+import { Course } from '../../course/models/course.model';
 
 interface CenterAttr {
   id: string;
@@ -51,6 +54,12 @@ export class Center extends Model<Center, CenterAttr> {
   @BelongsTo(() => Plan)
   plan: Plan;
 
-  // @HasMany(() => Teacher)
-  // teacher: Teacher[];
+  @HasMany(() => Course)
+  course: Course[];
+
+  @HasMany(() => Teacher)
+  teacher: Teacher[];
+
+  @HasMany(() => Student)
+  student: Student[];
 }

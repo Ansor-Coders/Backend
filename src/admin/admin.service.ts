@@ -85,6 +85,8 @@ export class AdminService {
               model: Plan,
               attributes: [
                 'id',
+                'name',
+                'price',
                 'student_amount',
                 'teacher_amount',
                 'group_amount',
@@ -158,6 +160,8 @@ export class AdminService {
               model: Plan,
               attributes: [
                 'id',
+                'name',
+                'price',
                 'student_amount',
                 'teacher_amount',
                 'group_amount',
