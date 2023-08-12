@@ -19,12 +19,22 @@ import { Group } from './group/models/group.model';
 import { GroupStudent } from './group_student/models/group_student.model';
 import { CourseModule } from './course/course.module';
 import { Course } from './course/models/course.model';
+import { TelegramService } from './telegram/telegram.service';
+import { TelegramUpdate } from './telegram/telegram.update';
+import { TelegrafModule } from 'nestjs-telegraf';
+import { MyBotName } from './telegram/telegram.constants';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: resolve(__dirname, 'static'),
-    }),
+    // TelegrafModule.forRootAsync({
+    //   botName: MyBotName,
+    //   useFactory: () => ({
+    //     token: process.env.BOT_TOKEN,
+    //     middlewares: [],
+    //     include: [],
+    //   }),
+    // }),
+    ServeStaticModule.forRoot({ rootPath: resolve(__dirname, 'static') }),
     ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
@@ -63,6 +73,6 @@ import { Course } from './course/models/course.model';
     GroupStudentModule,
   ],
   controllers: [],
-  providers: [],
+  // providers: [TelegramService, TelegramUpdate],
 })
 export class AppModule {}
