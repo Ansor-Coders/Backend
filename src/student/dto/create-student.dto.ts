@@ -25,7 +25,7 @@ export class CreateStudentDto {
   last_name: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Student',
   })
   @IsNotEmpty()
@@ -33,7 +33,7 @@ export class CreateStudentDto {
   phone: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone additional of the Student',
   })
   @IsOptional()

@@ -19,7 +19,7 @@ export class UpdateStudentDto {
   last_name?: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Student',
   })
   @IsOptional()
@@ -27,7 +27,7 @@ export class UpdateStudentDto {
   phone?: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone additional of the Student',
   })
   @IsOptional()

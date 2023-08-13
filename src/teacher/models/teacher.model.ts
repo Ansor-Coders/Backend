@@ -15,9 +15,9 @@ interface TeacherAttr {
   first_name: string;
   last_name: string;
   phone: string;
+  gender: string;
   position: string;
   experience: string;
-  image_name: string;
   hashed_password: string;
   hashed_token: string;
   is_active: boolean;
@@ -39,13 +39,13 @@ export class Teacher extends Model<Teacher, TeacherAttr> {
   phone: string;
 
   @Column({ type: DataType.STRING })
+  gender: string;
+
+  @Column({ type: DataType.STRING })
   position: string;
 
   @Column({ type: DataType.STRING })
   experience: string;
-
-  @Column({ type: DataType.STRING })
-  image_name: string;
 
   @Column({ type: DataType.STRING })
   hashed_password: string;

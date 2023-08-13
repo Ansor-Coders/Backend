@@ -36,14 +36,7 @@ export class GroupService {
 
   async findAll() {
     return this.groupRepository.findAll({
-      attributes: [
-        'id',
-        'name',
-        'lesson_day',
-        'lesson_time',
-        'image_name',
-        'is_active',
-      ],
+      attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
       include: [
         {
           model: Course,
@@ -57,9 +50,9 @@ export class GroupService {
             'first_name',
             'last_name',
             'phone',
+            'gender',
             'position',
             'experience',
-            'image_name',
             'is_active',
           ],
         },
@@ -71,9 +64,9 @@ export class GroupService {
             'first_name',
             'last_name',
             'phone',
+            'gender',
             'position',
             'experience',
-            'image_name',
             'is_active',
           ],
         },
@@ -121,14 +114,7 @@ export class GroupService {
   async getOne(id: string) {
     const group = await this.groupRepository.findOne({
       where: { id },
-      attributes: [
-        'id',
-        'name',
-        'lesson_day',
-        'lesson_time',
-        'image_name',
-        'is_active',
-      ],
+      attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
       include: [
         {
           model: Course,
@@ -142,9 +128,9 @@ export class GroupService {
             'first_name',
             'last_name',
             'phone',
+            'gender',
             'position',
             'experience',
-            'image_name',
             'is_active',
           ],
         },
@@ -156,9 +142,9 @@ export class GroupService {
             'first_name',
             'last_name',
             'phone',
+            'gender',
             'position',
             'experience',
-            'image_name',
             'is_active',
           ],
         },

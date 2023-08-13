@@ -24,7 +24,7 @@ export class UpdateAdminDto {
   last_name?: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Admin',
   })
   @IsOptional()
@@ -32,7 +32,7 @@ export class UpdateAdminDto {
   phone?: string;
 
   @ApiProperty({
-    example: 'john77',
+    example: 'john11',
     description: 'The username of the Admin',
   })
   @IsOptional()
@@ -40,7 +40,7 @@ export class UpdateAdminDto {
   username?: string;
 
   @ApiProperty({
-    example: 'password',
+    example: 'admin',
     description: 'The password of the Admin',
   })
   @IsOptional()

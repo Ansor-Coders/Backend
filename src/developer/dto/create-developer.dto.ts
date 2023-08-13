@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateDeveloperDto {
   @ApiProperty({
-    example: 'john77',
+    example: 'john11',
     description: 'The username of the Developer',
   })
   @IsNotEmpty()
@@ -11,7 +11,7 @@ export class CreateDeveloperDto {
   username: string;
 
   @ApiProperty({
-    example: 'password',
+    example: 'developer',
     description: 'The password of the Developer',
   })
   @IsNotEmpty()

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsOptional, IsString } from 'class-validator';
+import { IsBooleanString, IsOptional, IsString } from 'class-validator';
 
 export class UpdateCenterDto {
   @ApiProperty({
@@ -19,11 +19,11 @@ export class UpdateCenterDto {
   address?: string;
 
   @ApiProperty({
-    example: true,
+    example: 'true',
     description: 'The status of the Center',
   })
   @IsOptional()
-  @IsBoolean()
+  @IsBooleanString()
   is_active?: boolean;
 
   @ApiProperty({

@@ -19,7 +19,7 @@ export class CreateAdminDto {
   last_name: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Admin',
   })
   @IsNotEmpty()
@@ -27,7 +27,7 @@ export class CreateAdminDto {
   phone: string;
 
   @ApiProperty({
-    example: 'john77',
+    example: 'john11',
     description: 'The username of the Admin',
   })
   @IsNotEmpty()
@@ -35,7 +35,7 @@ export class CreateAdminDto {
   username: string;
 
   @ApiProperty({
-    example: 'password',
+    example: 'admin',
     description: 'The password of the Admin',
   })
   @IsNotEmpty()

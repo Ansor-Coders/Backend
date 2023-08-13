@@ -24,12 +24,20 @@ export class UpdateTeacherDto {
   last_name?: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Teacher',
   })
   @IsOptional()
   @IsPhoneNumber()
   phone?: string;
+
+  @ApiProperty({
+    example: 'male',
+    description: 'The gender of the Teacher',
+  })
+  @IsOptional()
+  @IsString()
+  gender?: string;
 
   @ApiProperty({
     example: 'English teacher',
@@ -48,7 +56,7 @@ export class UpdateTeacherDto {
   experience?: string;
 
   @ApiProperty({
-    example: 'password',
+    example: 'teacher',
     description: 'The password of the Teacher',
   })
   @IsOptional()

@@ -76,7 +76,6 @@ export class PlanService {
                 'first_name',
                 'last_name',
                 'phone',
-                'image_name',
                 'username',
                 'is_active',
               ],

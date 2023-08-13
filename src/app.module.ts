@@ -29,6 +29,7 @@ import { DeveloperModule } from './developer/developer.module';
 import { Developer } from './developer/models/developer.model';
 import { Lesson } from './lesson/models/lesson.model';
 import { Payment } from './payment/models/payment.model';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -83,6 +84,7 @@ import { Payment } from './payment/models/payment.model';
     GroupStudentModule,
     LessonModule,
     PaymentModule,
+    ImageModule,
   ],
   controllers: [],
   // providers: [TelegramService, TelegramUpdate],

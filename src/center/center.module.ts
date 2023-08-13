@@ -5,12 +5,14 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Center } from './models/center.model';
 import { AdminModule } from '../admin/admin.module';
 import { PlanModule } from '../plan/plan.module';
+import { ImageModule } from '../image/image.module';
 
 @Module({
   imports: [
     SequelizeModule.forFeature([Center]),
     forwardRef(() => AdminModule),
     forwardRef(() => PlanModule),
+    forwardRef(() => ImageModule),
   ],
   controllers: [CenterController],
   providers: [CenterService],

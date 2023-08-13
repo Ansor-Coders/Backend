@@ -3,7 +3,7 @@ import { IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
 
 export class LoginTeacherDto {
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Teacher',
   })
   @IsNotEmpty()
@@ -11,7 +11,7 @@ export class LoginTeacherDto {
   phone: string;
 
   @ApiProperty({
-    example: 'password',
+    example: 'teacher',
     description: 'The password of the Teacher',
   })
   @IsNotEmpty()

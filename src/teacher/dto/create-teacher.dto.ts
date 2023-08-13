@@ -19,12 +19,20 @@ export class CreateTeacherDto {
   last_name: string;
 
   @ApiProperty({
-    example: '+998991234567',
+    example: '+998991234511',
     description: 'The phone of the Teacher',
   })
   @IsNotEmpty()
   @IsPhoneNumber()
   phone: string;
+
+  @ApiProperty({
+    example: 'male',
+    description: 'The gender of the Teacher',
+  })
+  @IsNotEmpty()
+  @IsString()
+  gender: string;
 
   @ApiProperty({
     example: 'English teacher',
@@ -43,7 +51,7 @@ export class CreateTeacherDto {
   experience: string;
 
   @ApiProperty({
-    example: 'password',
+    example: 'teacher',
     description: 'The password of the Teacher',
   })
   @IsNotEmpty()

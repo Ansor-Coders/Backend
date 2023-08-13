@@ -16,7 +16,6 @@ interface GroupAttr {
   name: string;
   lesson_day: string;
   lesson_time: string;
-  image_name: string;
   is_active: boolean;
   course_id: string;
   assistant_id: string;
@@ -36,9 +35,6 @@ export class Group extends Model<Group, GroupAttr> {
 
   @Column({ type: DataType.STRING })
   lesson_time: string;
-
-  @Column({ type: DataType.STRING })
-  image_name: string;
 
   @Column({ type: DataType.BOOLEAN, defaultValue: true })
   is_active: boolean;

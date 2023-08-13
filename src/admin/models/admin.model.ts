@@ -6,7 +6,6 @@ interface AdminAttr {
   first_name: string;
   last_name: string;
   phone: string;
-  image_name: string;
   username: string;
   hashed_password: string;
   hashed_token: string;
@@ -26,9 +25,6 @@ export class Admin extends Model<Admin, AdminAttr> {
 
   @Column({ type: DataType.STRING })
   phone: string;
-
-  @Column({ type: DataType.STRING })
-  image_name: string;
 
   @Column({ type: DataType.STRING })
   username: string;

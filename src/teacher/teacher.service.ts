@@ -69,9 +69,9 @@ export class TeacherService {
         'first_name',
         'last_name',
         'phone',
+        'gender',
         'position',
         'experience',
-        'image_name',
         'is_active',
       ],
       include: [
@@ -130,9 +130,9 @@ export class TeacherService {
         'first_name',
         'last_name',
         'phone',
+        'gender',
         'position',
         'experience',
-        'image_name',
         'is_active',
       ],
       include: [
@@ -157,14 +157,7 @@ export class TeacherService {
         {
           model: Group,
           as: 'group_teacher',
-          attributes: [
-            'id',
-            'name',
-            'lesson_day',
-            'lesson_time',
-            'image_name',
-            'is_active',
-          ],
+          attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
           include: [
             {
               model: Course,
@@ -175,14 +168,7 @@ export class TeacherService {
         {
           model: Group,
           as: 'group_assistant',
-          attributes: [
-            'id',
-            'name',
-            'lesson_day',
-            'lesson_time',
-            'image_name',
-            'is_active',
-          ],
+          attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
           include: [
             {
               model: Course,
