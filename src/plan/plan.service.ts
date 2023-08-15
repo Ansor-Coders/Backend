@@ -21,15 +21,7 @@ export class PlanService {
 
   async findAll() {
     return this.planRepository.findAll({
-      attributes: [
-        'id',
-        'name',
-        'price',
-        'student_amount',
-        'teacher_amount',
-        'group_amount',
-        'is_active',
-      ],
+      attributes: ['id', 'name', 'price', 'student_amount', 'is_active'],
     });
   }
 
@@ -55,15 +47,7 @@ export class PlanService {
   async getOne(id: string) {
     const plan = await this.planRepository.findOne({
       where: { id },
-      attributes: [
-        'id',
-        'name',
-        'price',
-        'student_amount',
-        'teacher_amount',
-        'group_amount',
-        'is_active',
-      ],
+      attributes: ['id', 'name', 'price', 'student_amount', 'is_active'],
       include: [
         {
           model: Center,

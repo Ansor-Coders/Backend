@@ -1,7 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CreatePaymentDto {
+export class SpendMoneyDto {
+  @ApiProperty({
+    example: 175000,
+    description: 'The amount of money to spend',
+  })
+  @IsNotEmpty()
+  @IsNumber()
+  money: number;
+
   @ApiProperty({
     example: 'May',
     description: 'The month of the Payment in YYYY-MM-DD format',
@@ -17,12 +25,4 @@ export class CreatePaymentDto {
   @IsNotEmpty()
   @IsString()
   group_student_id: string;
-
-  @ApiProperty({
-    example: 'f68b71d0-a07f-4dd6-bf12-bbc6aaeb510a',
-    description: 'The balance history ID of the Payment',
-  })
-  @IsNotEmpty()
-  @IsString()
-  balance_history_id: string;
 }

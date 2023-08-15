@@ -60,15 +60,7 @@ export class CenterService {
         },
         {
           model: Plan,
-          attributes: [
-            'id',
-            'name',
-            'price',
-            'student_amount',
-            'teacher_amount',
-            'group_amount',
-            'is_active',
-          ],
+          attributes: ['id', 'name', 'price', 'student_amount', 'is_active'],
         },
       ],
     });
@@ -152,15 +144,7 @@ export class CenterService {
         },
         {
           model: Plan,
-          attributes: [
-            'id',
-            'name',
-            'price',
-            'student_amount',
-            'teacher_amount',
-            'group_amount',
-            'is_active',
-          ],
+          attributes: ['id', 'name', 'price', 'student_amount', 'is_active'],
         },
         {
           model: Course,

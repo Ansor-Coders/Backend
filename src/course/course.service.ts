@@ -68,7 +68,14 @@ export class CourseService {
         },
         {
           model: Group,
-          attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
+          attributes: [
+            'id',
+            'name',
+            'lesson_day',
+            'lesson_time',
+            'duration_months',
+            'is_active',
+          ],
           include: [
             {
               model: Teacher,

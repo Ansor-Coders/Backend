@@ -30,6 +30,8 @@ import { Developer } from './developer/models/developer.model';
 import { Lesson } from './lesson/models/lesson.model';
 import { Payment } from './payment/models/payment.model';
 import { ImageModule } from './image/image.module';
+import { BalanceHistoryModule } from './balance_history/balance_history.module';
+import { BalanceHistory } from './balance_history/models/balance_history.model';
 
 @Module({
   imports: [
@@ -71,6 +73,7 @@ import { ImageModule } from './image/image.module';
         GroupStudent,
         Lesson,
         Payment,
+        BalanceHistory,
       ],
     }),
     DeveloperModule,
@@ -85,6 +88,7 @@ import { ImageModule } from './image/image.module';
     LessonModule,
     PaymentModule,
     ImageModule,
+    BalanceHistoryModule,
   ],
   controllers: [],
   // providers: [TelegramService, TelegramUpdate],

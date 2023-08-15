@@ -12,6 +12,7 @@ import { GroupStudent } from '../group_student/models/group_student.model';
 import { Student } from '../student/models/student.model';
 import { Lesson } from '../lesson/models/lesson.model';
 import { Payment } from '../payment/models/payment.model';
+import { BalanceHistory } from '../balance_history/models/balance_history.model';
 
 @Injectable()
 export class GroupService {
@@ -36,7 +37,15 @@ export class GroupService {
 
   async findAll() {
     return this.groupRepository.findAll({
-      attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
+      order: [['createdAt', 'DESC']],
+      attributes: [
+        'id',
+        'name',
+        'lesson_day',
+        'lesson_time',
+        'duration_months',
+        'is_active',
+      ],
       include: [
         {
           model: Course,
@@ -114,7 +123,29 @@ export class GroupService {
   async getOne(id: string) {
     const group = await this.groupRepository.findOne({
       where: { id },
-      attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
+      order: [
+        [{ model: GroupStudent, as: 'groupStudent' }, 'createdAt', 'DESC'],
+        [
+          { model: GroupStudent, as: 'groupStudent' },
+          { model: Lesson, as: 'lesson' },
+          'date',
+          'DESC',
+        ],
+        [
+          { model: GroupStudent, as: 'groupStudent' },
+          { model: Payment, as: 'payment' },
+          'createdAt',
+          'DESC',
+        ],
+      ],
+      attributes: [
+        'id',
+        'name',
+        'lesson_day',
+        'lesson_time',
+        'duration_months',
+        'is_active',
+      ],
       include: [
         {
           model: Course,
@@ -172,6 +203,18 @@ export class GroupService {
             {
               model: Payment,
               attributes: ['id', 'month', 'is_active'],
+              include: [
+                {
+                  model: BalanceHistory,
+                  attributes: [
+                    'id',
+                    'money',
+                    'is_added',
+                    'is_active',
+                    'createdAt',
+                  ],
+                },
+              ],
             },
           ],
         },
