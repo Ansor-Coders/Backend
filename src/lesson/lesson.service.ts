@@ -57,6 +57,7 @@ export class LessonService {
                 'name',
                 'lesson_day',
                 'lesson_time',
+                'duration_months',
                 'is_active',
               ],
             },
@@ -126,6 +127,7 @@ export class LessonService {
                 'name',
                 'lesson_day',
                 'lesson_time',
+                'duration_months',
                 'is_active',
               ],
               include: [

@@ -155,7 +155,14 @@ export class TeacherService {
         {
           model: Group,
           as: 'group_teacher',
-          attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
+          attributes: [
+            'id',
+            'name',
+            'lesson_day',
+            'lesson_time',
+            'duration_months',
+            'is_active',
+          ],
           include: [
             {
               model: Course,
@@ -166,7 +173,14 @@ export class TeacherService {
         {
           model: Group,
           as: 'group_assistant',
-          attributes: ['id', 'name', 'lesson_day', 'lesson_time', 'is_active'],
+          attributes: [
+            'id',
+            'name',
+            'lesson_day',
+            'lesson_time',
+            'duration_months',
+            'is_active',
+          ],
           include: [
             {
               model: Course,

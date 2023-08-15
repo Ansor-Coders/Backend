@@ -57,6 +57,7 @@ export class PaymentService {
                 'name',
                 'lesson_day',
                 'lesson_time',
+                'duration_months',
                 'is_active',
               ],
             },
@@ -129,6 +130,7 @@ export class PaymentService {
                 'name',
                 'lesson_day',
                 'lesson_time',
+                'duration_months',
                 'is_active',
               ],
               include: [

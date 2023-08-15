@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Min,
+} from 'class-validator';
 
 export class UpdateGroupDto {
   @ApiProperty({
@@ -25,6 +31,15 @@ export class UpdateGroupDto {
   @IsOptional()
   @IsString()
   lesson_time?: string;
+
+  @ApiProperty({
+    example: 3,
+    description: 'The duration in months of the Group',
+  })
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  duration_months?: number;
 
   @ApiProperty({
     example: true,
