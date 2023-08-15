@@ -147,8 +147,6 @@ export class TeacherService {
                 'name',
                 'price',
                 'student_amount',
-                'teacher_amount',
-                'group_amount',
                 'is_active',
               ],
             },

@@ -6,8 +6,6 @@ interface PlanAttr {
   name: string;
   price: number;
   student_amount: number;
-  teacher_amount: number;
-  group_amount: number;
   is_active: boolean;
 }
 
@@ -24,12 +22,6 @@ export class Plan extends Model<Plan, PlanAttr> {
 
   @Column({ type: DataType.INTEGER })
   student_amount: number;
-
-  @Column({ type: DataType.INTEGER })
-  teacher_amount: number;
-
-  @Column({ type: DataType.INTEGER })
-  group_amount: number;
 
   @Column({ type: DataType.BOOLEAN, defaultValue: true })
   is_active: boolean;

@@ -25,20 +25,4 @@ export class CreatePlanDto {
   @IsNotEmpty()
   @IsNumber()
   student_amount: number;
-
-  @ApiProperty({
-    example: 100,
-    description: 'The teacher amount of the Plan',
-  })
-  @IsNotEmpty()
-  @IsNumber()
-  teacher_amount: number;
-
-  @ApiProperty({
-    example: 100,
-    description: 'The group amount of the Plan',
-  })
-  @IsNotEmpty()
-  @IsNumber()
-  group_amount: number;
 }

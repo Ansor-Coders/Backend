@@ -27,22 +27,6 @@ export class UpdatePlanDto {
   student_amount?: number;
 
   @ApiProperty({
-    example: 100,
-    description: 'The teacher amount of the Plan',
-  })
-  @IsOptional()
-  @IsNumber()
-  teacher_amount?: number;
-
-  @ApiProperty({
-    example: 100,
-    description: 'The group amount of the Plan',
-  })
-  @IsOptional()
-  @IsNumber()
-  group_amount?: number;
-
-  @ApiProperty({
     example: true,
     description: 'The status of the Plan',
   })
