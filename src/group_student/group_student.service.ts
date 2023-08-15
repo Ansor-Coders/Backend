@@ -1,4 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  forwardRef,
+} from '@nestjs/common';
 import { CreateGroupStudentDto } from './dto/create-group_student.dto';
 import { UpdateGroupStudentDto } from './dto/update-group_student.dto';
 import { InjectModel } from '@nestjs/sequelize';
@@ -14,6 +20,7 @@ export class GroupStudentService {
   constructor(
     @InjectModel(GroupStudent)
     private groupStudentRepository: typeof GroupStudent,
+    @Inject(forwardRef(() => StudentService))
     private readonly studentService: StudentService,
     private readonly groupService: GroupService,
   ) {}

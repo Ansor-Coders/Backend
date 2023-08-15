@@ -1,4 +1,9 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpException,
+  HttpStatus,
+  Injectable,
+} from '@nestjs/common';
 import { CreateLessonDto } from './dto/create-lesson.dto';
 import { UpdateLessonDto } from './dto/update-lesson.dto';
 import { InjectModel } from '@nestjs/sequelize';
@@ -21,6 +26,7 @@ export class LessonService {
 
   async create(createLessonDto: CreateLessonDto) {
     await this.groupStudentService.getOne(createLessonDto.group_student_id);
+    await this.checkDate(createLessonDto);
 
     const lesson = await this.lessonRepository.create({
       id: v4(),
@@ -173,5 +179,16 @@ export class LessonService {
       throw new HttpException('Lesson not found', HttpStatus.NOT_FOUND);
     }
     return lesson;
+  }
+
+  async checkDate(createLessonDto: CreateLessonDto) {
+    const lesson = await this.lessonRepository.findOne({
+      where: { ...createLessonDto },
+      attributes: ['id', 'date', 'group_student_id'],
+    });
+    if (lesson) {
+      throw new BadRequestException('Date already created!');
+    }
+    return true;
   }
 }

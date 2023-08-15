@@ -11,6 +11,8 @@ import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { AddMoneytDto } from './dto/add-money.dto';
+import { SpendMoneyDto } from './dto/spend-money.dto';
 
 @ApiTags('Student')
 @Controller('student')
@@ -48,5 +50,23 @@ export class StudentController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.studentService.remove(id);
+  }
+
+  @ApiOperation({ summary: 'Add money to Balance' })
+  @Post(':id/money/add')
+  async addMoneyToBalance(
+    @Param('id') id: string,
+    @Body() addMoneytDto: AddMoneytDto,
+  ) {
+    return this.studentService.addMoneyToBalance(id, addMoneytDto.money);
+  }
+
+  @ApiOperation({ summary: 'Spend money from Balance' })
+  @Post(':id/money/spend')
+  async spendMoneyFromBalance(
+    @Param('id') id: string,
+    @Body() spendMoneyDto: SpendMoneyDto,
+  ) {
+    return this.studentService.spendMoneyFromBalance(id, spendMoneyDto);
   }
 }

@@ -9,6 +9,7 @@ import {
 } from 'sequelize-typescript';
 import { Center } from '../../center/models/center.model';
 import { GroupStudent } from '../../group_student/models/group_student.model';
+import { BalanceHistory } from './../../balance_history/models/balance_history.model';
 
 interface StudentAttr {
   id: string;
@@ -18,6 +19,7 @@ interface StudentAttr {
   phone_additional: string;
   gender: string;
   birth_year: number;
+  balance: number;
   is_active: boolean;
   center_id: string;
 }
@@ -45,6 +47,9 @@ export class Student extends Model<Student, StudentAttr> {
   @Column({ type: DataType.SMALLINT })
   birth_year: number;
 
+  @Column({ type: DataType.INTEGER, defaultValue: 0 })
+  balance: number;
+
   @Column({ type: DataType.BOOLEAN, defaultValue: true })
   is_active: boolean;
 
@@ -57,4 +62,7 @@ export class Student extends Model<Student, StudentAttr> {
 
   @HasMany(() => GroupStudent)
   groupStudent: GroupStudent[];
+
+  @HasMany(() => BalanceHistory)
+  balanceHistory: BalanceHistory[];
 }

@@ -11,6 +11,7 @@ import { Group } from '../group/models/group.model';
 import { Course } from '../course/models/course.model';
 import { Teacher } from '../teacher/models/teacher.model';
 import { Center } from '../center/models/center.model';
+import { BalanceHistory } from '../balance_history/models/balance_history.model';
 
 @Injectable()
 export class PaymentService {
@@ -31,8 +32,13 @@ export class PaymentService {
 
   async findAll() {
     return this.paymentRepository.findAll({
+      order: [['createdAt', 'DESC']],
       attributes: ['id', 'month', 'is_active'],
       include: [
+        {
+          model: BalanceHistory,
+          attributes: ['id', 'money', 'is_added', 'is_active', 'createdAt'],
+        },
         {
           model: GroupStudent,
           attributes: ['id', 'is_active'],
@@ -66,7 +72,7 @@ export class PaymentService {
       ],
     });
   }
-  
+
   async findOne(id: string) {
     return this.getOne(id);
   }
@@ -94,6 +100,10 @@ export class PaymentService {
       where: { id },
       attributes: ['id', 'month', 'is_active'],
       include: [
+        {
+          model: BalanceHistory,
+          attributes: ['id', 'money', 'is_added', 'is_active', 'createdAt'],
+        },
         {
           model: GroupStudent,
           attributes: ['id', 'is_active'],

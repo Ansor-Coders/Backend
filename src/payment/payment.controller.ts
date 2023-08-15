@@ -17,11 +17,11 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
-  @ApiOperation({ summary: 'Create a Payment' })
-  @Post()
-  async create(@Body() createPaymentDto: CreatePaymentDto) {
-    return this.paymentService.create(createPaymentDto);
-  }
+  // @ApiOperation({ summary: 'Create a Payment' })
+  // @Post()
+  // async create(@Body() createPaymentDto: CreatePaymentDto) {
+  //   return this.paymentService.create(createPaymentDto);
+  // }
 
   @ApiOperation({ summary: 'Get all Payment' })
   @Get()

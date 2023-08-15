@@ -12,6 +12,7 @@ import { GroupStudent } from '../group_student/models/group_student.model';
 import { Student } from '../student/models/student.model';
 import { Lesson } from '../lesson/models/lesson.model';
 import { Payment } from '../payment/models/payment.model';
+import { BalanceHistory } from '../balance_history/models/balance_history.model';
 
 @Injectable()
 export class GroupService {
@@ -36,6 +37,7 @@ export class GroupService {
 
   async findAll() {
     return this.groupRepository.findAll({
+      order: [['createdAt', 'DESC']],
       attributes: [
         'id',
         'name',
@@ -121,6 +123,21 @@ export class GroupService {
   async getOne(id: string) {
     const group = await this.groupRepository.findOne({
       where: { id },
+      order: [
+        [{ model: GroupStudent, as: 'groupStudent' }, 'createdAt', 'DESC'],
+        [
+          { model: GroupStudent, as: 'groupStudent' },
+          { model: Lesson, as: 'lesson' },
+          'date',
+          'DESC',
+        ],
+        [
+          { model: GroupStudent, as: 'groupStudent' },
+          { model: Payment, as: 'payment' },
+          'createdAt',
+          'DESC',
+        ],
+      ],
       attributes: [
         'id',
         'name',
@@ -186,6 +203,18 @@ export class GroupService {
             {
               model: Payment,
               attributes: ['id', 'month', 'is_active'],
+              include: [
+                {
+                  model: BalanceHistory,
+                  attributes: [
+                    'id',
+                    'money',
+                    'is_added',
+                    'is_active',
+                    'createdAt',
+                  ],
+                },
+              ],
             },
           ],
         },
