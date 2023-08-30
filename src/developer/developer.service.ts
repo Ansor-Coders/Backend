@@ -38,6 +38,7 @@ export class DeveloperService {
     const developer = await this.getOne(developerByUsername.id);
     const response = {
       token,
+      role: 'DEVELOPER',
       developer,
     };
     return response;

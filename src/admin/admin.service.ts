@@ -40,6 +40,7 @@ export class AdminService {
     const admin = await this.getOne(adminByUsername.id);
     const response = {
       token,
+      role: 'ADMIN',
       admin,
     };
     return response;

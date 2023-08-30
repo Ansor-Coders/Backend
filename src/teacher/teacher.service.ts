@@ -41,6 +41,7 @@ export class TeacherService {
     const teacher = await this.getOne(teacherByPhone.id);
     const response = {
       token,
+      role: 'TEACHER',
       teacher,
     };
     return response;
